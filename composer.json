@@ -37,7 +37,8 @@
     "require-dev": {
         "symfony/maker-bundle": "^1.47",
         "symfony/stopwatch": "6.1.*",
-        "symfony/web-profiler-bundle": "6.1.*"
+        "symfony/web-profiler-bundle": "6.1.*",
+        "heroku/heroku-buildpack-php" : "dev-master"
     },
     "config": {
         "allow-plugins": {
