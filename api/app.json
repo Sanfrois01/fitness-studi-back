@@ -2,8 +2,7 @@
   "success_url": "/",
   "env": {
     "APP_ENV": "prod",
-    "APP_SECRET": {"generator": "secret"},
-    "CORS_ALLOW_ORIGIN": "https://your-client-url.com"
+    "APP_SECRET": {"generator": "secret"}
   },
   "addons": [
     "heroku-postgresql"
