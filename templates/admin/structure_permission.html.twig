@@ -1,0 +1,32 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title%} Structures {% endblock %}
+
+{% block main %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+
+        <h1>Les Permissions</h1>
+        {% for message in app.flashes('success')%}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+        {% for structure_permission in structure_permissions %}
+            <div>
+                <h2> {{ structure_permission.structurepermissionname }}</h2>
+                <a type="button" class="btn btn-warning" href="{{ path('structure_permission_update', {'id': structure_permission.id }) }}">Modifier la permission</a>
+                <a type="button" class="btn btn-danger" href="{{ path('structure_permission_delete', {'id': structure_permission.id }) }}">Supprimer la permission</a>
+            </div>
+
+        {% endfor %}
+
+        <div>
+            <a  type="button" class="btn btn-info my-3" href="{{ path('structure_permission_create') }}">Créer une permission</a>
+        </div>
+    {% endif %}
+
+{% endblock %}
+

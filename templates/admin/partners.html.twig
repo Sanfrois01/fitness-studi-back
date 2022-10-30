@@ -1,0 +1,38 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title%} Partenaires {% endblock %}
+
+{% block main %}
+
+    <h1>Les Partenaires</h1>
+    {% if is_granted('ROLE_ADMIN') %}
+
+        {% for message in app.flashes('success')%}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% for partner in partners %}
+        <div>
+            <h2> {{ partner.partnername }}</h2>
+            
+            <a type="button" class="btn btn-warning" href="{{ path('partner_update', {'id': partner.id }) }}">Modifier les données du partenaire</a>
+            <a type="button" class="btn btn-danger" href="{{ path('partner_delete', {'id': partner.id }) }}">Supprimer les données du partenaire</a>
+        </div>
+
+    {% endfor %}
+
+
+        <div>
+        <a  type="button" class="btn btn-info my-3" href="{{ path('partner_create') }}">Créer un partenaire</a>
+    </div>
+
+        <div>
+        <a  type="button" class="btn btn-info my-3" href="{{ path('structure_create') }}">Créer une structure</a>
+    </div>
+    {% endif %}
+
+{% endblock %}
+

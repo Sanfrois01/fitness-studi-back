@@ -1,0 +1,35 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title%} Structures {% endblock %}
+
+{% block main %}
+
+    <h1>Les Structures</h1>
+
+    {% if is_granted('ROLE_ADMIN') %}
+
+        {% for message in app.flashes('success')%}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+        {% for structure in structures %}
+            <div>
+                <h2> {{ structure.structurename }}</h2>
+                <a> {{ structure.structurepartner }}</a>
+
+                <a  type="button" class="btn btn-warning" href="{{ path('structure_update', {'id': structure.id }) }}">Modifier les données de la structure</a>
+                <a  type="button" class="btn btn-danger" href="{{ path('structure_delete', {'id': structure.id }) }}">Supprimer les données de la structure</a>
+            </div>
+
+        {% endfor %}
+
+        <div>
+            <a  type="button" class="btn btn-info my-3" href="{{ path('structure_create') }}">Créer une structure</a>
+        </div>
+    {% endif %}
+
+{% endblock %}
+

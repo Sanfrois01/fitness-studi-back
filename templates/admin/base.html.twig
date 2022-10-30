@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+    {% block stylesheets %}
+
+       {{ encore_entry_link_tags('app') }} 
+    {% endblock %}
+
+    {% block javascripts %}
+         {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid " >
+
+         <a class="navbar-brand">Fitness Studi </a>
+            <a Connecté en tant que : {{ app.user.email }}  class="nav-item" </a>
+
+            <a class="nav-link" href="{{ path('partner_list') }}">Partenaires</a>
+            <a class="nav-link" href="{{ path('structure_list') }}"> Structures </a>
+            <a class="nav-link" href="{{ path('structure_permission_list') }}"> Les Permissions </a>
+            <a type="button"  class="btn btn-danger" href="{{ path('app_logout') }}">Se déconnecter</a>
+        </div>
+    </nav>
+       
+
+
+<body>
+
+<main>
+    {% block main %}
+    {% endblock main %}
+</main>
+</body>
+</html>
