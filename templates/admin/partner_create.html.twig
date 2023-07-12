@@ -2,7 +2,13 @@
  {% block main %}
 
 
- {{ form_start(partnerForm) }}
+ {{ form_start(partnerForm , {'attr' : {'class' :'display-6 py-5' }})}}
+
+     {% for message in app.flashes('success') %} 
+        <div class=" alert alert-success d-flex justify-content-center">
+            {{message}}
+        </div>
+    {% endfor %}
 
 
   {{ form_end(partnerForm) }}

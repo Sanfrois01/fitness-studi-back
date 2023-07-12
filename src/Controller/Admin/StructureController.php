@@ -52,10 +52,10 @@ class StructureController extends AbstractController
         if  ($structureForm->isSubmitted() && $structureForm->isValid()){
             $entityManager->persist($structure);
             $entityManager->flush();
+            $this->addFlash('success', 'Structure créé avec succes');
             return $this->redirectToRoute('structure_list');
 
         }
-        $this->addFlash('success', 'Structure créé avec succes');
 
 
         return $this->render('/admin/structure_create.html.twig',[
@@ -79,10 +79,10 @@ class StructureController extends AbstractController
         if  ($structureForm->isSubmitted() && $structureForm->isValid()){
             $entityManager->persist($structure);
             $entityManager->flush();
+            $this->addFlash('success', 'Structure modifié avec succes');
             return  $this->redirectToRoute('structure_list');
         }
 
-        $this->addFlash('success', 'Structure modifié avec succes');
 
 
         return $this->render('/admin/structure_create.html.twig',[

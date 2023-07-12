@@ -52,10 +52,10 @@ class StructurePermissionController extends AbstractController
         if  ($structurePermissionForm->isSubmitted() && $structurePermissionForm->isValid()){
             $entityManager->persist($structure_permission);
             $entityManager->flush();
+            $this->addFlash('success', 'Permission créé avec succes');
             return $this->redirectToRoute('structure_permission_list');
 
         }
-        $this->addFlash('success', 'Permission créé avec succes');
 
 
         return $this->render('/admin/structure_permission_create.html.twig',[
@@ -76,10 +76,10 @@ class StructurePermissionController extends AbstractController
         if  ($structurePermissionForm->isSubmitted() && $structurePermissionForm->isValid()){
             $entityManager->persist($structure_permission);
             $entityManager->flush();
+            $this->addFlash('success', 'Permission modifié avec succes');
             return $this->redirectToRoute('structure_permission_list');
 
         }
-        $this->addFlash('success', 'Permission modifié avec succes');
 
 
         return $this->render('/admin/structure_permission_create.html.twig',[

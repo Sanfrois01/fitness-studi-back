@@ -9,23 +9,30 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class StructurePermissionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('structure_permission_name')
+            ->add('structure_permission_name' ,TextType::class,[
+                "label" => "Nom de la permission",
+                "required" => true,
+                "sanitize_html" => true 
+                
+            ])
             ->add('structure_permission_active' ,CheckboxType::class,[
+                "label" => "Permission de la structure active",
                 'required' => false,
                 'label_attr' => [
                 'class' => 'checkbox-switch',
                     ]
             ])
 
-            ->add('submit', SubmitType::class)
-
+            ->add('submit', SubmitType::class,[
+                "label" => "Envoyer"
+            ])
         ;
     }
 

@@ -1,7 +1,13 @@
 {% extends 'admin/base.html.twig' %}
  {% block main %}
 
-{{ form (structureForm) }}
+{{ form (structureForm, {'attr' : {'class' :'display-6 py-5' }})}}
+
+    {% for message in app.flashes('success') %} 
+        <div class=" alert alert-success d-flex justify-content-center">
+            {{message}}
+        </div>
+    {% endfor %}
 
 {% endblock main %}
 

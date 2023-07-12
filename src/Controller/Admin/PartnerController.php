@@ -36,7 +36,7 @@ class PartnerController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('partner_list');
-        $this->addFlash('success', 'Partenaire créé avec succes');
+        $this->addFlash('success', 'Partenaire supprimé avec succes');
 
 
 
@@ -57,12 +57,10 @@ class PartnerController extends AbstractController
         if  ($partnerForm->isSubmitted() && $partnerForm->isValid()){
             $entityManager->persist($partner);
             $entityManager->flush();
+            $this->addFlash('success', 'Partenaire créé avec succes');
+
             return $this->redirectToRoute('partner_list');
-
-
-
         }
-        $this->addFlash('success', 'Partenaire créé avec succes');
 
 
 
@@ -85,12 +83,10 @@ class PartnerController extends AbstractController
         if  ($partnerForm->isSubmitted() && $partnerForm->isValid()){
             $entityManager->persist($partner);
             $entityManager->flush();
+            $this->addFlash('success', 'Partenaire modifié avec succes');
             return $this->redirectToRoute('partner_list');
 
         }
-
-        $this->addFlash('success', 'Partenaire modifié avec succes');
-
 
         return $this->render('/admin/partner_create.html.twig',[
             'partnerForm' => $partnerForm->createView()

@@ -46,6 +46,15 @@ h1 {
     margin-bottom: 10px;
 }
 
+html , body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content {
+    flex-grow: 1;
+  }
 
 
 @import "~bootstrap/scss/bootstrap";
